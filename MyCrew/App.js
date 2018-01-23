@@ -12,14 +12,22 @@ import {
   View
 } from 'react-native';
 
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
 
 import LoginScreen from './app/screens/Login/LoginScreen.js'
 import MainScreen from './app/screens/Main/MainScreen.js'
 
-const Navigation = StackNavigator({
+const Drawer = DrawerNavigator({
   Main: { screen: MainScreen }
+});
+
+const Stack = StackNavigator({
+  Main: { screen: Drawer }
   // Login: { screen: LoginScreen }
 });
 
-export default Navigation;
+Drawer.navigationOptions = {
+  title: 'MyCrewApp'
+}
+
+export default Stack;
