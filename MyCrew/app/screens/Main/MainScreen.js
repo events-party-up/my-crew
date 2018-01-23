@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
-import { Text, View, TextInput, Image, Button } from 'react-native'
+import { Text, View, TextInput, Image, Button, TouchableHighlight } from 'react-native'
 import MapView from 'react-native-maps'
 
 import styles from './MainScreenStyles'
+import menuStyles from '../../utils/MenuStyles'
 
 export default class MainScreen extends Component {
   static navigationOptions = ( { navigation }) => ({
     title: 'MyCrewApp',
-    headerLeft: <Button
-      title="oi"
-      onPress={ () => {
-        navigation.navigate('DrawerToggle', {title: 'idapsd'});
-        console.log('oilalaa')
-      }}
-    />
+    headerLeft: <TouchableHighlight onPress={ () => { navigation.navigate('DrawerToggle') }}>
+      <Image source={require('../../assets/iconMenu.png')} style={menuStyles.icon} />
+    </TouchableHighlight>,
+    headerRight: <View style={menuStyles.headerRightContainer}>
+      <TouchableHighlight onPress={ () => { navigation.navigate('Filters') }} >
+        <Image source={require('../../assets/iconFilter.png')} style={menuStyles.icon} />
+      </TouchableHighlight>
+      <TouchableHighlight >
+        <Image source={require('../../assets/iconAdd.png')} style={menuStyles.icon} />
+      </TouchableHighlight>
+    </View>
   })
   render() {
     return (
