@@ -8,17 +8,21 @@ import menuStyles from '../../utils/MenuStyles'
 export default class MainScreen extends Component {
   static navigationOptions = ( { navigation }) => ({
     title: 'MyCrewApp',
-    headerLeft: <TouchableHighlight onPress={ () => { navigation.navigate('DrawerToggle') }}>
-      <Image source={require('../../assets/iconMenu.png')} style={menuStyles.icon} />
-    </TouchableHighlight>,
-    headerRight: <View style={menuStyles.headerRightContainer}>
-      <TouchableHighlight onPress={ () => { navigation.navigate('Filters') }} >
-        <Image source={require('../../assets/iconFilter.png')} style={menuStyles.icon} />
+    headerLeft: (
+      <TouchableHighlight onPress={ () => { navigation.navigate('DrawerToggle') }}>
+        <Image source={require('../../assets/iconMenu.png')} style={menuStyles.icon} />
       </TouchableHighlight>
-      <TouchableHighlight >
-        <Image source={require('../../assets/iconAdd.png')} style={menuStyles.icon} />
-      </TouchableHighlight>
-    </View>
+    ),
+    headerRight: (
+      <View style={menuStyles.headerRightContainer}>
+        <TouchableHighlight onPress={ () => { navigation.navigate('Filters') }} >
+          <Image source={require('../../assets/iconFilter.png')} style={menuStyles.icon} />
+        </TouchableHighlight>
+        <TouchableHighlight >
+          <Image source={require('../../assets/iconAdd.png')} style={menuStyles.icon} />
+        </TouchableHighlight>
+      </View>
+    )
   })
   render() {
     return (
