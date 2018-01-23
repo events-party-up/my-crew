@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Text, View, TextInput, Image, Button } from 'react-native';
-import MapView from 'react-native-maps';
+import React, { Component } from 'react'
+import { Text, View, TextInput, Image, Button } from 'react-native'
+import MapView from 'react-native-maps'
 
 import styles from './MainScreenStyles'
 
@@ -28,6 +28,6 @@ export default class MainScreen extends Component {
           }}
         />
       </View>
-    );
+    )
   }
 }

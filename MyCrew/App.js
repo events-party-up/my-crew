@@ -4,30 +4,32 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Platform,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator } from 'react-navigation'
 
-import LoginScreen from './app/screens/Login/LoginScreen.js'
-import MainScreen from './app/screens/Main/MainScreen.js'
+import LoginScreen from './app/screens/Login/LoginScreen'
+import SignupScreen from './app/screens/Signup/SignupScreen'
+import MainScreen from './app/screens/Main/MainScreen'
 
 const Drawer = DrawerNavigator({
   Main: { screen: MainScreen }
 });
 
 const Stack = StackNavigator({
-  Main: { screen: Drawer }
-  // Login: { screen: LoginScreen }
+  Login: { screen: LoginScreen },
+  Signup: { screen: SignupScreen},
+  Main: { screen: Drawer },
 });
 
 Drawer.navigationOptions = {
   title: 'MyCrewApp'
 }
 
-export default Stack;
+export default Stack
