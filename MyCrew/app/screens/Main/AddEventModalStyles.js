@@ -11,7 +11,11 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 70,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10
   },
   logo: {
     flex: 1,
@@ -22,14 +26,19 @@ export default StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     width: '100%',
-    marginTop: 50
+    backgroundColor: Colors.whiteIce
   },
   input: {
-    marginTop: 10
+    marginTop: 20
   },
-  buttonLogin: {
-    backgroundColor: Colors.purple,
-    marginTop: 10,
+  buttonConfirm: {
+    backgroundColor: Colors.purpleLight,
+    marginTop: 30,
+    width: '50%'
+  },
+  buttonCancel: {
+    backgroundColor: Colors.grey,
+    marginTop: 20,
     width: '50%'
   },
   logoBridge: {

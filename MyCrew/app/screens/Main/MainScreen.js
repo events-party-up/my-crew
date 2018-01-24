@@ -3,6 +3,7 @@ import { Text, View, TextInput, Image, Button } from 'react-native'
 import MapView from 'react-native-maps'
 
 import styles from './MainScreenStyles'
+import AddEventModal from './AddEventModal'
 
 export default class MainScreen extends Component {
   static navigationOptions = ( { navigation }) => ({
@@ -11,7 +12,6 @@ export default class MainScreen extends Component {
       title="oi"
       onPress={ () => {
         navigation.navigate('DrawerToggle', {title: 'idapsd'});
-        console.log('oilalaa')
       }}
     />
   })

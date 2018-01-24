@@ -10,19 +10,22 @@ export default class SignupScreen extends Component {
   static navigationOptions = {
     header: null
   }
+
   onSignupPress = () => {
     console.log('ola ')
   }
+
   render() {
     return (
       <ScrollView style={Styles.scrollView} contentContainerStyle={Styles.contentContainer}>
         <View style={Styles.container}>
           <Image source={require('../../assets/logo.png')} style={Styles.logo} />
           <View style={Styles.form}>
-            {/* <Input placeholder="E-mail" style={Styles.input}/>
+            <Input placeholder="Name" style={Styles.input}/>
+            <Input placeholder="E-mail" style={Styles.input}/>
             <Input placeholder="Password" style={Styles.input} secureTextEntry={true}/>
-            <Button text="Login" style={Styles.buttonLogin} onPress={this.onLoginPress} underlayColor={Colors.purpleLight}/>
-            <Button text="Signup" style={Styles.buttonSignup} /> */}
+            <Input placeholder="Repeat your Password" style={Styles.input} secureTextEntry={true}/>
+            <Button text="Register" style={Styles.buttonLogin} onPress={this.onLoginPress} underlayColor={Colors.purpleLight}/>
           </View>
           <Image source={require('../../assets/logoBridge.png')} style={Styles.logoBridge}/>
         </View>
