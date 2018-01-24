@@ -3,13 +3,15 @@ import { Text, View, TextInput, Image, Button, TouchableHighlight } from 'react-
 import MapView from 'react-native-maps'
 
 import AddEventModal from './AddEventModal'
+import ButtonNavbar from '../../components/ButtonNavbar'
 
 import styles from './MainScreenStyles'
 import menuStyles from '../../utils/MenuStyles'
 import colors from '../../utils/colors'
 
+
 export default class MainScreen extends Component {
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -18,7 +20,7 @@ export default class MainScreen extends Component {
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
   }
-  
+
   openModal() {
     this.setState({modalVisible: true})
   }
@@ -30,27 +32,21 @@ export default class MainScreen extends Component {
   componentDidMount() {
     this.props.navigation.setParams({ modal: this.openModal.bind(this) })
   }
-  
+
   static navigationOptions = ( { navigation }) => ({
     title: 'Map',
     headerStyle: {
       backgroundColor: colors.grey
     },
     headerLeft: (
-      <TouchableHighlight onPress={ () => { navigation.navigate('DrawerToggle') }}>
-        <Image source={require('../../assets/iconMenu.png')} style={menuStyles.icon} />
-      </TouchableHighlight>
+      <ButtonNavbar onPress={() => { navigation.navigate('DrawerToggle') }} icon={require('../../assets/iconMenu.png')} underlayColor={colors.purpleLight} />
     ),
     headerRight: (
       <View style={menuStyles.headerRightContainer}>
-        <TouchableHighlight onPress={ () => { navigation.navigate('Filters') }} >
-          <Image source={require('../../assets/iconFilter.png')} style={menuStyles.icon} />
-        </TouchableHighlight>
-        <TouchableHighlight underlayColor={colors.purpleLight} onPress={() => navigation.state.params.modal()}>
-          <Image source={require('../../assets/iconAdd.png')} style={menuStyles.icon} />
-        </TouchableHighlight>
+        <ButtonNavbar onPress={() => { navigation.navigate('Filters') }} icon={require('../../assets/iconFilter.png')} underlayColor={colors.purpleLight} />
+        <ButtonNavbar onPress={() => navigation.state.params.modal()} icon={require('../../assets/iconAdd.png')} underlayColor={colors.purpleLight} />
       </View>
-    ) 
+    )
   })
   render() {
     return (
