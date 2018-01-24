@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native'
-import Colors from '../../utils/colors'
+import colors from '../../utils/colors'
 
 export default StyleSheet.create({
-  
+  container: {
+    backgroundColor: colors.whiteIce,
+    height: '100%',
+  }
 })

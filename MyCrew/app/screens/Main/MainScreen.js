@@ -4,10 +4,14 @@ import MapView from 'react-native-maps'
 
 import styles from './MainScreenStyles'
 import menuStyles from '../../utils/MenuStyles'
+import colors from '../../utils/colors'
 
 export default class MainScreen extends Component {
   static navigationOptions = ( { navigation }) => ({
-    title: 'MyCrewApp',
+    title: 'Map',
+    headerStyle: {
+      backgroundColor: colors.grey
+    },
     headerLeft: (
       <TouchableHighlight onPress={ () => { navigation.navigate('DrawerToggle') }}>
         <Image source={require('../../assets/iconMenu.png')} style={menuStyles.icon} />
