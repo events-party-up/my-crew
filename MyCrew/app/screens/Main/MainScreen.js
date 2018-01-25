@@ -9,28 +9,28 @@ import styles from './MainScreenStyles'
 import menuStyles from '../../utils/MenuStyles'
 import colors from '../../utils/colors'
 
+import { connect } from 'react-redux';
 
-export default class MainScreen extends Component {
+import { changeModalFlag } from '../../redux/mainActions'
+
+class MainScreen extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      modalVisible: false
-    }
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
   }
 
   openModal() {
-    this.setState({modalVisible: true})
+    this.props.dispatch(changeModalFlag(true))
   }
 
   closeModal() {
-    this.setState({modalVisible: false})
+    this.props.dispatch(changeModalFlag(false))
   }
 
   componentDidMount() {
-    this.props.navigation.setParams({ modal: this.openModal.bind(this) })
+    this.props.navigation.setParams({ modal: this.openModal.bind(this)})
   }
 
   static navigationOptions = ( { navigation }) => ({
@@ -53,15 +53,32 @@ export default class MainScreen extends Component {
       <View>
         <MapView
           style={styles.map}
-          initialRegion={{
+          region={{
             latitude: 37.78825,
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-        />
-        <AddEventModal closeModal={this.closeModal} modalVisible={this.state.modalVisible}/>
+        >
+          {this.props.markers.map(marker => (
+            <MapView.Marker key={marker.description} //use a uuid lib
+              coordinate={marker.coordinate}
+              title={marker.title}
+              description={marker.description}
+            />
+          ))}
+        </MapView>
+        <AddEventModal closeModal={this.closeModal} modalVisible={this.props.isModalOpen}/>
       </View>
     )
   }
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    markers: state.main.markers,
+    isModalOpen: state.main.isModalOpen
+  };
+};
+
+export default connect(mapStateToProps)(MainScreen);

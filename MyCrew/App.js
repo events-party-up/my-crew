@@ -5,6 +5,10 @@
  */
 
 import React, { Component } from 'react'
+
+import { Provider } from 'react-redux'
+import configureStore from './app/redux/configureStore'
+
 import {
   Platform,
   StyleSheet,
@@ -19,6 +23,8 @@ import SignupScreen from './app/screens/Signup/SignupScreen'
 import MainScreen from './app/screens/Main/MainScreen'
 import EventsScreen from './app/screens/Events/EventsScreen'
 import FilterScreen from './app/screens/Filters/FilterScreen'
+
+
 
 const Drawer = DrawerNavigator({
   Main: { screen: MainScreen },
@@ -36,4 +42,15 @@ Drawer.navigationOptions = {
   title: 'MyCrewApp'
 }
 
-export default Stack
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={configureStore()}>
+        <Stack />
+      </Provider>
+    )
+  }
+}
+
+export default App
