@@ -20,7 +20,12 @@ export default class Input extends React.Component {
   render() {
     return (
       <View style={[styles.container, this.props.style]}>
-        <TextInput placeholder={this.props.placeholder} style={styles.input} secureTextEntry={this.props.secureTextEntry}/>
+        <TextInput
+          placeholder={this.props.placeholder}
+          style={[styles.input, this.props.inputStyle]}
+          secureTextEntry={this.props.secureTextEntry}
+          keyboardType={this.props.keyboardType}
+        />
       </View>
     )
   }
