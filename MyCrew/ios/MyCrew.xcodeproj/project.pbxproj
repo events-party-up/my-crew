@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,6 +37,9 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		D2DFFD6E73185A972AFA4A9B /* libPods-MyCrew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D02D08407524409802CA71FC /* libPods-MyCrew.a */; };
+		64218C33F07642AAA3AE2B89 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC06124E11D4ABC80F31494 /* libRealmReact.a */; };
+		D03D42A444DD441F95E6C10A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5FD7220CE44930BDF217FC /* libc++.tbd */; };
+		2B768EF920BF45E3A3025DB9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 538E459E18BE46ABA5F73ABF /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +292,10 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		D02D08407524409802CA71FC /* libPods-MyCrew.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyCrew.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC834ADFDCA54B8BA9F2812B /* RealmReact.xcodeproj */ = {isa = PBXFileReference; name = "RealmReact.xcodeproj"; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		3FC06124E11D4ABC80F31494 /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		0B5FD7220CE44930BDF217FC /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		538E459E18BE46ABA5F73ABF /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +325,9 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				D2DFFD6E73185A972AFA4A9B /* libPods-MyCrew.a in Frameworks */,
+				64218C33F07642AAA3AE2B89 /* libRealmReact.a in Frameworks */,
+				D03D42A444DD441F95E6C10A /* libc++.tbd in Frameworks */,
+				2B768EF920BF45E3A3025DB9 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +469,8 @@
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				D02D08407524409802CA71FC /* libPods-MyCrew.a */,
+				0B5FD7220CE44930BDF217FC /* libc++.tbd */,
+				538E459E18BE46ABA5F73ABF /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -497,6 +508,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				FC834ADFDCA54B8BA9F2812B /* RealmReact.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -638,7 +650,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1129,6 +1141,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyCrew.app/MyCrew";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1146,6 +1166,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyCrew.app/MyCrew";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 			};
 			name = Release;
 		};
@@ -1165,6 +1193,10 @@
 				);
 				PRODUCT_NAME = MyCrew;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1183,6 +1215,10 @@
 				);
 				PRODUCT_NAME = MyCrew;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 			};
 			name = Release;
 		};
@@ -1209,6 +1245,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1235,6 +1279,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 			};
 			name = Release;
 		};
@@ -1256,6 +1308,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyCrew-tvOS.app/MyCrew-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1277,6 +1333,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyCrew-tvOS.app/MyCrew-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};

@@ -1,13 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react'
 
 import { Provider } from 'react-redux'
 import configureStore from './app/redux/configureStore'
+import Realm from 'realm'
+
+import Event from './app/models/Event'
+import Person from './app/models/Person'
 
 import {
   Platform,
@@ -24,8 +22,6 @@ import MainScreen from './app/screens/Main/MainScreen'
 import EventsScreen from './app/screens/Events/EventsScreen'
 import FilterScreen from './app/screens/Filters/FilterScreen'
 
-
-
 const Drawer = DrawerNavigator({
   Main: { screen: MainScreen },
   Events: { screen: EventsScreen },
@@ -41,7 +37,6 @@ const Stack = StackNavigator({
 Drawer.navigationOptions = {
   title: 'MyCrewApp'
 }
-
 
 class App extends React.Component {
   render() {
