@@ -4,10 +4,6 @@ import { TouchableHighlight, Image, StyleSheet } from 'react-native'
 import Colors from '../utils/colors'
 import MenuStyles from '../utils/MenuStyles'
 
-const styles = StyleSheet.create({
-
-})
-
 export default class ButtonNavbar extends Component {
   render() {
     return (
