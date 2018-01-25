@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 
 import { Provider } from 'react-redux'
 import configureStore from './app/redux/configureStore'
-import Realm from 'realm'
-
-import Event from './app/models/Event'
-import Person from './app/models/Person'
 
 import {
   Platform,
