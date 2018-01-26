@@ -1,12 +1,15 @@
-const express = require('express')
-const graphqlHTTP = require('express-graphql')
-const app = express()
+const Express = require('express');
+const GraphHTTP = require('express-graphql')
+const Schema = require('./schema')
 
-const schema = require('./schema')
+const app = Express()
 
-app.use('/graphql', graphqlHTTP({
-  schema,
+app.use('/graphql', GraphHTTP({
+  schema: Schema,
+  pretty: true,
   graphiql: true
 }))
 
-app.listen(3000)
+app.listen(3000, () => {
+  console.log('Server running on 3000')
+})
