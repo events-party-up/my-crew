@@ -12,6 +12,7 @@ import {
 
 import { StackNavigator, DrawerNavigator } from 'react-navigation'
 
+import DrawerMenu from './app/components/DrawerMenu'
 import LoginScreen from './app/screens/Login/LoginScreen'
 import SignupScreen from './app/screens/Signup/SignupScreen'
 import MainScreen from './app/screens/Main/MainScreen'
@@ -22,6 +23,8 @@ const Drawer = DrawerNavigator({
   Main: { screen: MainScreen },
   Events: { screen: EventsScreen },
   Filters: { screen: FilterScreen }
+}, {
+  contentComponent: DrawerMenu,
 });
 
 const Stack = StackNavigator({

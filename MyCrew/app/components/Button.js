@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { TouchableHighlight, Text, StyleSheet } from 'react-native'
 
 import Colors from '../utils/colors'
@@ -16,9 +16,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export default class Button extends React.Component {
+export default class Button extends Component {
   render() {
-    // const propsStyle = { styles.container }
     return (
       <TouchableHighlight onPress={this.props.onPress} style={[styles.container, this.props.style]} underlayColor={this.props.underlayColor}>
         <Text style={[styles.text, this.props.textStyle]}>
