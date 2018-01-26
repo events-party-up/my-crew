@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList } from 'react-native'
+import { connect } from 'react-redux'
 
 import Styles from './EventsScreenStyles'
 import Colors from '../../utils/colors'
@@ -7,7 +8,7 @@ import Colors from '../../utils/colors'
 import ButtonNavbar from '../../components/ButtonNavbar'
 import Event from '../../components/Event'
 
-export default class EventsScreen extends Component {
+class EventsScreen extends Component {
   static navigationOptions = ( { navigation }) => ({
     title: 'Your Events',
     headerStyle: {
@@ -25,3 +26,11 @@ export default class EventsScreen extends Component {
     )
   }
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    events: state.main.events
+  };
+};
+
+export default connect(mapStateToProps)(EventsScreen)

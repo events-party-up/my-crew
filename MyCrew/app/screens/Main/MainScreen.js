@@ -60,11 +60,11 @@ class MainScreen extends Component {
             longitudeDelta: 0.0421,
           }}
         >
-          {this.props.markers.map(marker => (
-            <MapView.Marker key={marker.description} //use a uuid lib
-              coordinate={marker.coordinate}
-              title={marker.title}
-              description={marker.description}
+          {this.props.events.map(event => (
+            <MapView.Marker key={event.marker.description} //use a uuid lib
+              coordinate={event.marker.coordinate}
+              title={event.marker.title}
+              description={event.marker.description}
             />
           ))}
         </MapView>
@@ -76,7 +76,7 @@ class MainScreen extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    markers: state.main.markers,
+    events: state.main.events,
     isModalOpen: state.main.isModalOpen
   };
 };
