@@ -44,8 +44,8 @@ export default class DrawerMenu extends Component {
               <Image source={require('../assets/logo.png')} style={Styles.logo} />
             </View>
             <DrawerMenuItem text="Home" image={require('../assets/iconMap.png')} onPress={this.navigateToScreen('Main')} />
-            <DrawerMenuItem text="My Events" image={require('../assets/iconCalendar.png')} onPress={this.navigateToScreen('Events')} />
-            <DrawerMenuItem text="My Profile" image={require('../assets/iconAccount.png')} onPress={this.navigateToScreen('Profile')} />
+            <DrawerMenuItem text="My Events" image={require('../assets/iconActivity.png')} onPress={this.navigateToScreen('Events')} />
+            <DrawerMenuItem text="Manage Profile" image={require('../assets/iconAccount.png')} onPress={this.navigateToScreen('Profile')} />
             <DrawerMenuItem text="About Us" image={require('../assets/iconBusiness.png')} onPress={this.navigateToScreen('About')} />
           </SafeAreaView>
         </ScrollView>

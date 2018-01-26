@@ -14,6 +14,9 @@ export default class FilterScreen extends Component {
     headerStyle: {
       backgroundColor: Colors.grey
     },
+    headerLeft: (
+      <ButtonNavbar onPress={() => { navigation.goBack() }} icon={require('../../assets/iconBack.png')} underlayColor={Colors.purpleLight} />
+    ),
     headerRight: (
       <ButtonNavbar onPress={() => { navigation.navigate('Main') }} icon={require('../../assets/iconCheck.png')} underlayColor={Colors.purpleLight} />
     )

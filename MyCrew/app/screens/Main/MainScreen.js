@@ -36,7 +36,7 @@ class MainScreen extends Component {
   static navigationOptions = ( { navigation }) => ({
     title: 'Map',
     headerStyle: {
-      backgroundColor: colors.grey
+      backgroundColor: colors.whiteIce
     },
     headerLeft: (
       <ButtonNavbar onPress={() => { navigation.navigate('DrawerToggle') }} icon={require('../../assets/iconMenu.png')} underlayColor={colors.purpleLight} />
