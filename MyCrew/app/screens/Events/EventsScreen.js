@@ -20,7 +20,7 @@ export default class EventsScreen extends Component {
   render() {
     return (
       <View style={Styles.container}>
-        <Event title="Munchkin"/>
+        <Event title="Munchkin" isOwner={true} />
       </View>
     )
   }
