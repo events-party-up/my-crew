@@ -171,7 +171,7 @@ Delete the user's account
 }
 ```
 
-<a name="v1m7></a>
+<a name="v1m7"></a>
 ### 7. PUT /api/v1/event/update
          
 **query**
@@ -199,7 +199,7 @@ Delete the user's account
 }
 ```
 
-<a name="v1m8></a>
+<a name="v1m8"></a>
 ### 8. POST /api/v1/event/join
          
 **query**
