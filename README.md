@@ -126,8 +126,9 @@ Delete the user's account
     lat: 0.0,
     lng: 0.0,
     price: 0.0,
-    openings: 0
-  }
+    openings: 0,
+    date: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+  }
 ]
 ```
 
@@ -150,6 +151,7 @@ Delete the user's account
     lng: 0.0,
     price: 0.0,
     openings: 0,
+    date: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     isOwner: false
   }
 ]
@@ -172,7 +174,8 @@ Delete the user's account
   lat: 0.0,
   lng: 0.0,
   price: 0.0,
-  openings: 0
+  openings: 0,
+  date: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 }
 ```
 **output**
@@ -216,7 +219,8 @@ Delete the user's account
   lat: 0.0,
   lng: 0.0,
   price: 0.0,
-  openings: 0
+  openings: 0,
+  date: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 }
 ```
 **output**
