@@ -40,10 +40,10 @@ Simple project created to achieve some react-native knowlodge
 ##### Profile
 
 10. Update the user's profile information<br/>
-[PUT /api/v1/profile/update]
+[PUT /api/v1/profile/update](#v1m10)
 
 11. Update the user's password<br/>
-[PUT /api/v1/profile/password]
+[PUT /api/v1/profile/password](#v1m11)
 
 <a name="v1m1"></a>
 ### 1. POST /api/v1/account/signup
