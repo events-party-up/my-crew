@@ -21,6 +21,9 @@ Simple project created to achieve some react-native knowlodge
 4. List of events (with optional filters)<br/>
 [GET /api/v1/event/list](#v1m4)
 
+12. List of events the user signed up for<br/>
+[GET /api/v1/event/attending](#v1m12)
+
 5. Create new event<br/>
 [POST /api/v1/event/new](#v1m5)
 
@@ -124,6 +127,30 @@ Delete the user's account
     lng: 0.0,
     price: 0.0,
     openings: 0
+  }
+]
+```
+
+<a name="v1m12"></a>
+### 12. GET /api/v1/event/attending
+
+**query**
+```
+  token: "",
+  userId: ""
+```
+**output**
+```
+[
+  {
+    name: "",
+    type: "",
+    description: "",
+    lat: 0.0,
+    lng: 0.0,
+    price: 0.0,
+    openings: 0,
+    isOwner: false
   }
 ]
 ```
