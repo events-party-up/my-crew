@@ -21,6 +21,7 @@ export default class Input extends React.Component {
     return (
       <View style={[styles.container, this.props.style]}>
         <TextInput
+          underlineColorAndroid='transparent'
           placeholder={this.props.placeholder}
           style={[styles.input, this.props.inputStyle]}
           secureTextEntry={this.props.secureTextEntry}

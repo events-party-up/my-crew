@@ -12,7 +12,11 @@ export default class SignupScreen extends Component {
   }
 
   onSignupPress = () => {
-    console.log('ola ')
+    this.props.navigation.navigate('Login')
+  }
+
+  onRegisterPress = () => {
+    this.props.navigation.navigate('Main')
   }
 
   render() {
@@ -25,7 +29,8 @@ export default class SignupScreen extends Component {
             <Input placeholder="E-mail" style={Styles.input}/>
             <Input placeholder="Password" style={Styles.input} secureTextEntry={true}/>
             <Input placeholder="Repeat your Password" style={Styles.input} secureTextEntry={true}/>
-            <Button text="Register" style={Styles.buttonLogin} onPress={this.onLoginPress} underlayColor={Colors.purpleLight}/>
+            <Button text="Register" style={Styles.buttonLogin} onPress={this.onRegisterPress} underlayColor={Colors.purpleLight}/>
+            <Button text="Already have an account?" style={Styles.buttonSignup} onPress={this.onSignupPress} underlayColor="transparent" />
           </View>
           <Image source={require('../../assets/logoBridge.png')} style={Styles.logoBridge}/>
         </View>

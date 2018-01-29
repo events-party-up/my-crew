@@ -25,7 +25,7 @@ export default class LoginScreen extends Component {
             <Input placeholder="E-mail" style={Styles.input}/>
             <Input placeholder="Password" style={Styles.input} secureTextEntry={true}/>
             <Button text="Login" style={Styles.buttonLogin} onPress={this.onLoginPress} underlayColor={Colors.purpleLight}/>
-            <Button text="Signup" style={Styles.buttonSignup} onPress={this.onSignupPress} />
+            <Button text="Signup" style={Styles.buttonSignup} onPress={this.onSignupPress} underlayColor="transparent" />
           </View>
           <Image source={require('../../assets/logoBridge.png')} style={Styles.logoBridge}/>
         </View>
