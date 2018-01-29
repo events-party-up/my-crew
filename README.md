@@ -38,23 +38,119 @@ Simple project created to achieve some react-native knowlodge
 
 ##### Profile
 
-<a name="v1m1"></a>
-### 1. POST /api/v1/signup
-Create a new account 
+10. Update the user's profile information
+[PUT /api/v1/profile/update]
 
+11. Update the user's password
+[PUT /api/v1/profile/password]
+
+<a name="v1m1"></a>
+### 1. POST /api/v1/account/signup
+Create a new account 
 
 **body**
 ```
 {
-  "name": "",
-  "email": "",
-  "password": ""
+  name: "",
+  email: "",
+  password: ""
 }
 ```
 **output**
 ```
 {
-  "userId": "",
-  "token": ""
+  userId: "",
+  token: ""
 }
 ```
+
+<a name="v1m2"></a>
+### 2. POST /api/v1/account/login
+Log the user in 
+
+**body**
+```
+{
+  email: "",
+  password: ""
+}
+```
+**output**
+```
+{
+  userId: "",
+  token: ""
+}
+```
+
+<a name="v1m3"></a>
+### 3. DELETE /api/v1/account/delete
+Delete the user's account
+         
+**query**
+```
+  token: "",
+  userId: ""
+```
+**output**
+```
+{
+  success: true
+}
+```
+
+<a name="v1m4"></a>
+### 4. GET /api/v1/event/list
+         
+**query**
+```
+  token: "",
+  name: "",
+  type: "",
+  place: "",
+  minprice: 0.0,
+  maxprice: 0.0,
+  openings: 0
+```
+**output**
+```
+[
+  {
+    name: "",
+    type: "",
+    description: "",
+    lat: 0.0,
+    lng: 0.0,
+    price: 0.0,
+    openings: 0
+  }
+]
+```
+
+<a name="v1m5"></a>
+### 5. POST /api/v1/event/new
+
+**query**
+```
+  token: "",
+  userId: ""
+```
+**body**
+```
+{
+  name: "",
+  type: "",
+  description: "",
+  lat: 0.0,
+  lng: 0.0,
+  price: 0.0,
+  openings: 0
+}
+```
+**output**
+```
+{
+  eventId: ""
+}
+```
+
