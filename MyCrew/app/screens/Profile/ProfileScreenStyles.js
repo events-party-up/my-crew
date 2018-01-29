@@ -25,10 +25,23 @@ export default StyleSheet.create({
   },
   buttonPassword: {
     alignSelf: 'center',
+    backgroundColor: Colors.purpleDark,
+    width: '50%'
+  },
+  buttonDelete: {
+    alignSelf: 'center',
     backgroundColor: Colors.red,
     width: '50%'
   },
   buttonText: {
     color: 'white'
+  },
+  deleteDescription: {
+    color: Colors.blackLight,
+    marginBottom: 10,
+    marginLeft: 8,
+    marginRight: 8,
+    marginTop: 3,
+    textAlign: 'justify'
   }
 })
