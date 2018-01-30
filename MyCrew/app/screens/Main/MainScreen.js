@@ -13,6 +13,8 @@ import { connect } from 'react-redux';
 
 import { changeModalFlag } from '../../redux/mainActions'
 
+import uuidv4 from 'uuid/v4'
+
 class MainScreen extends Component {
 
   constructor(props) {
@@ -61,10 +63,13 @@ class MainScreen extends Component {
           }}
         >
           {this.props.events.map(event => (
-            <MapView.Marker key={event.marker.description} //use a uuid lib
-              coordinate={event.marker.coordinate}
-              title={event.marker.title}
-              description={event.marker.description}
+            <MapView.Marker key={uuidv4()} //use a uuid lib
+              coordinate={{
+                latitude: event.latitude,
+                longitude: event.longitude
+              }}
+              title={event.title}
+              description={event.description}
             />
           ))}
         </MapView>
