@@ -50,7 +50,17 @@ class EventsScreen extends Component {
   render() {
     return (
       <View style={Styles.container}>
-        <Event title="Munchkin" isOwner={true} />
+      {
+        this.props.events.map((event) => (
+          <Event key={uuidv4()}
+            title={event.title}
+            description={event.description}
+            date={moment(event.date).format("DD/MM/YYYY")}
+            local={event.local}
+            price={event.price}
+            isOwner={true}/>)
+        )
+      }
       </View>
     )
   }

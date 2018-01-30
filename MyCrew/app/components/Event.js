@@ -120,7 +120,11 @@ export default class Event extends Component {
           <View style={[styles.circle, styles.circleLeft]}></View>
         </View>
         <View style={styles.containerCenter}>
-          <Text style={styles.title}>{this.props.title}</Text>
+          <View style={styles.containerTitle}>
+            <Title text={this.props.title} textStyle={styles.title} />
+            {this.props.isOwner && <Button onPress={this.onEditPress} text="EDIT" style={styles.buttonAdmin} textStyle={styles.buttonAdminText} />}
+          </View>
+          <Text style={styles.description}>{this.props.description}</Text>
           <EventInfo content={this.props.date} source={require("../assets/iconCalendarEvent.png")} />
           <EventInfo content={this.props.local}source={require("../assets/iconMarker.png")} />
           <EventInfo content={this.props.price} source={require("../assets/iconMoney.png")} />
