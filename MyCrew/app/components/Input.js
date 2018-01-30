@@ -17,15 +17,21 @@ const styles = StyleSheet.create({
 })
 
 export default class Input extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <View style={[styles.container, this.props.style]}>
         <TextInput
           underlineColorAndroid='transparent'
+          onChangeText={this.props.onChangeText}
           placeholder={this.props.placeholder}
           style={[styles.input, this.props.inputStyle]}
           secureTextEntry={this.props.secureTextEntry}
           keyboardType={this.props.keyboardType}
+          onBlur={this.props.onBlur}
         />
       </View>
     )

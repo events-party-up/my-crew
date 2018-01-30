@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flexDirection: 'row',
+    marginTop: 10,
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '95%'
@@ -120,13 +121,13 @@ export default class Event extends Component {
         </View>
         <View style={styles.containerCenter}>
           <View style={styles.containerTitle}>
-            <Title text="Título do evento" textStyle={styles.title} />
+            <Title text={this.props.title} textStyle={styles.title} />
             {this.props.isOwner && <Button onPress={this.onEditPress} text="EDIT" style={styles.buttonAdmin} textStyle={styles.buttonAdminText} />}
           </View>
-          <Text style={styles.description}>Descrição blablaabl bla blbal lal lablb lalba lblab l ablab lla bai aoihi oiioaioh oiaio haio ioh</Text>
-          <EventInfo content="23/02/2018 - 16:00" source={require("../assets/iconCalendarEvent.png")} />
-          <EventInfo content="Laboratório Bridge" source={require("../assets/iconMarker.png")} />
-          <EventInfo content="R$ 5,00" source={require("../assets/iconMoney.png")} />
+          <Text style={styles.description}>{this.props.description}</Text>
+          <EventInfo content={this.props.date} source={require("../assets/iconCalendarEvent.png")} />
+          <EventInfo content={this.props.local}source={require("../assets/iconMarker.png")} />
+          <EventInfo content={this.props.price} source={require("../assets/iconMoney.png")} />
           <View style={styles.containerButtons}>
             <Button onPress={this.onCancelPress} text="Delete" style={[styles.button, styles.buttonCancel]} textStyle={styles.buttonText}/>
             <Button onPress={this.onMapPress} text="View on Map" style={[styles.button, styles.buttonMap]} textStyle={styles.buttonText}/>
