@@ -41,6 +41,7 @@ class MainScreen extends Component {
     Realm.open({schema: Schema})
     .then(realm => {
       const events = realm.objects('Event').map((event) => ({
+        id: uuidv4(),
         title: event.name,
         description: event.description,
         date: moment(event.date, ["MM-DD-YYYY", "YYYY-MM-DD"]),

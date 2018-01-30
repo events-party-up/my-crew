@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import uuidv4 from 'uuid/v4'
 import moment from 'moment'
 
 import Styles from './EventsScreenStyles'
@@ -29,17 +28,20 @@ class EventsScreen extends Component {
   render() {
     return (
       <View style={Styles.container}>
-      {
-        this.props.events.map((event) => (
-          <Event key={uuidv4()}
-            title={event.title}
-            description={event.description}
-            date={moment(event.date).format("DD/MM/YYYY")}
-            local={event.local}
-            price={event.price}
-            isOwner={true}/>)
-        )
-      }
+        <FlatList
+          keyExtractor={(item, index) => item.id}
+          data={this.props.events}
+          renderItem={ ({item}) => (
+            <Event
+              title={item.title}
+              description={item.description}
+              date={moment(item.date).format("DD/MM/YYYY")}
+              local={item.local}
+              price={item.price}
+              isOwner={true}/>
+          )}
+        />
+
       </View>
     )
   }
