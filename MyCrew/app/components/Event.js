@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableHighlight, Image } from 'react-native'
+import moment from 'moment'
 
 import Colors from '../utils/colors'
 
@@ -126,7 +127,7 @@ export default class Event extends Component {
           </View>
           <Text style={styles.description}>{this.props.description}</Text>
           <EventInfo content={this.props.date} source={require("../assets/iconCalendarEvent.png")} />
-          <EventInfo content={this.props.local}source={require("../assets/iconMarker.png")} />
+          <EventInfo content={this.props.local} source={require("../assets/iconMarker.png")} />
           <EventInfo content={this.props.price} source={require("../assets/iconMoney.png")} />
           <View style={styles.containerButtons}>
             <Button onPress={this.onCancelPress} text="Delete" style={[styles.button, styles.buttonCancel]} textStyle={styles.buttonText}/>

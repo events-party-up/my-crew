@@ -26,27 +26,6 @@ class EventsScreen extends Component {
     ),
   })
 
-  componentDidMount() {
-    Realm.open({schema: Schema})
-    .then(realm => {
-      const events = realm.objects('Event').map((event) => ({
-        title: event.name,
-        description: event.description,
-        date: moment(event.date, ["MM-DD-YYYY", "YYYY-MM-DD"]),
-        local: event.locationName,
-        price: event.price,
-        type: event.type,
-        openings: event.opnenings,
-        latitude: event.latitude,
-        longitude: event.longitude
-      }))
-      this.props.dispatch(setEvents(events))
-    }).catch(error => {
-      // implement user feedback - not connect to database
-      console.log(error);
-    });
-  }
-
   render() {
     return (
       <View style={Styles.container}>
