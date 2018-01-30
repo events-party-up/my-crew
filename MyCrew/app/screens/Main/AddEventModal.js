@@ -26,6 +26,7 @@ class AddEventModal extends Component {
     console.log(this.props.events)
     this.state = {
       name: '',
+      description: '',
       type: '',
       place: '',
       slots: '',
@@ -43,7 +44,7 @@ class AddEventModal extends Component {
         realm.write(() => {
           const event = realm.create('Event', {
             name: this.state.name,
-            description: 'DUMB DESCRIPTION',
+            description: this.state.description,
             price: parseInt(this.state.price),
             date: moment(this.state.date, 'DD-MM-YYYY').toDate(),
             locationName: this.state.place,
@@ -56,7 +57,7 @@ class AddEventModal extends Component {
 
         this.props.dispatch(saveEvent({
           title: this.state.name,
-          description: 'DUMB DESCRIPTION',
+          description: this.state.description,
           date: moment(this.state.date, 'DD-MM-YYYY').toDate(),
           local: this.state.place,
           price: this.state.price,
@@ -99,6 +100,7 @@ class AddEventModal extends Component {
               <View style={Styles.form}>
                 <Title text="Create an event" />
                 <Input onChangeText={(text) => this.setState({ name: text })} placeholder="Name" style={Styles.input}/>
+                <Input onChangeText={(text) => this.setState({ description: text })} placeholder="Description" style={Styles.input}/>
                 <Input onChangeText={(text) => this.setState({ type: text })} placeholder="Type" style={Styles.input}/>
                 <Input onChangeText={(text) => this.setState({ place: text })} onBlur={this.onLocationBlur} placeholder="Place" style={Styles.input}/>
                 <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Number of slots" style={Styles.input}/>
