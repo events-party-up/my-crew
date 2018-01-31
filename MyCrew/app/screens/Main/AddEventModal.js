@@ -93,7 +93,7 @@ class AddEventModal extends Component {
           <Modal
               visible={this.props.modalVisible}
               animationType={'slide'}
-              onRequestClose={() => this.closeModal()}
+              onRequestClose={this.props.closeModal}
               transparent={true}
           >
             <View style={Styles.container}>
