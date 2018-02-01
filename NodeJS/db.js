@@ -17,7 +17,7 @@ var db = {};
 
 db.person = sequelize.import(__dirname + '/models/person.js');
 db.event = sequelize.import(__dirname + '/models/event.js');
-db.event = sequelize.import(__dirname + '/models/signup.js');
+db.signup = sequelize.import(__dirname + '/models/signup.js');
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
