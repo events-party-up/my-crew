@@ -10,20 +10,19 @@ import Button from '../../components/Button'
 import Schema from '../../models/Schema'
 import Realm from 'realm'
 import moment from 'moment'
-import Geocoder from 'react-native-geocoder'
 
 import { connect } from 'react-redux'
 import { saveEvent } from '../../redux/mainActions'
 
+// import RNGooglePlaces from 'react-native-google-places'
 
 class AddEventModal extends Component {
 
   constructor(props) {
     super(props)
+    // console.log(Realm.defaultPath)
     this.onCreateEvent = this.onCreateEvent.bind(this)
-    this.onLocationBlur = this.onLocationBlur.bind(this)
-    console.log(Realm.defaultPath)
-    console.log(this.props.events)
+    this.openSearchModal = this.openSearchModal.bind(this)
     this.state = {
       name: '',
       description: '',
@@ -40,7 +39,6 @@ class AddEventModal extends Component {
   onCreateEvent() {
     Realm.open({schema: Schema})
       .then(realm => {
-        console.log(this.state)
         realm.write(() => {
           const event = realm.create('Event', {
             name: this.state.name,
@@ -68,8 +66,6 @@ class AddEventModal extends Component {
         }))
 
         this.props.closeModal();
-
-        console.log(this.props.events)
       }).catch(error => {
         // implement user feedback - not connect to database
         console.log(error);
@@ -77,14 +73,16 @@ class AddEventModal extends Component {
 
   }
 
-  onLocationBlur() {
-    Geocoder.geocodeAddress(this.state.place).then(res => {
-      const { lat, lng } = res[0].position
-      this.setState(() => ({
-        latitude: lat,
-        longitude: lng
-      }))
-    })
+  openSearchModal() {
+    // RNGooglePlaces.openAutocompleteModal().then((place) => {
+    //   this.setState({
+    //     locationName: place.name,
+    //     latitude: place.latitude,
+    //     longitude: place.longitude
+    //   })
+    // }).catch(error => {
+    //   console.log('Error trying to fetch place', error)
+    // });
   }
 
   render() {
@@ -102,8 +100,8 @@ class AddEventModal extends Component {
                 <Input onChangeText={(text) => this.setState({ name: text })} placeholder="Name" style={Styles.input}/>
                 <Input onChangeText={(text) => this.setState({ description: text })} placeholder="Description" style={Styles.input}/>
                 <Input onChangeText={(text) => this.setState({ type: text })} placeholder="Type" style={Styles.input}/>
-                <Input onChangeText={(text) => this.setState({ place: text })} onBlur={this.onLocationBlur} placeholder="Place" style={Styles.input}/>
-                <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Number of slots" style={Styles.input}/>
+                <Input onFocus={this.openSearchModal} value={this.state.locationName} placeholder="Place" style={Styles.input} />
+                <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Number of slots" style={Styles.input} />
                 <Input onChangeText={(text) => this.setState({ date: text })} placeholder="Date" style={Styles.input}/>
                 <Input onChangeText={(text) => this.setState({ price: text })} placeholder="Price" style={Styles.input}/>
                 <Button text="Create" style={Styles.buttonConfirm} onPress={this.onCreateEvent} underlayColor={Colors.purpleLight}/>
