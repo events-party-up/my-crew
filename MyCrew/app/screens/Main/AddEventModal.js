@@ -14,7 +14,7 @@ import moment from 'moment'
 import { connect } from 'react-redux'
 import { saveEvent } from '../../redux/mainActions'
 
-// import RNGooglePlaces from 'react-native-google-places'
+import RNGooglePlaces from 'react-native-google-places'
 
 class AddEventModal extends Component {
 
@@ -74,15 +74,15 @@ class AddEventModal extends Component {
   }
 
   openSearchModal() {
-    // RNGooglePlaces.openAutocompleteModal().then((place) => {
-    //   this.setState({
-    //     locationName: place.name,
-    //     latitude: place.latitude,
-    //     longitude: place.longitude
-    //   })
-    // }).catch(error => {
-    //   console.log('Error trying to fetch place', error)
-    // });
+    RNGooglePlaces.openAutocompleteModal().then((place) => {
+      this.setState({
+        locationName: place.name,
+        latitude: place.latitude,
+        longitude: place.longitude
+      })
+    }).catch(error => {
+      console.log('Error trying to fetch place', error)
+    });
   }
 
   render() {
