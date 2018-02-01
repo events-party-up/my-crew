@@ -64,7 +64,6 @@ Create a new account
 ```
 {
   userId: "",
-  token: ""
 }
 ```
 
@@ -83,7 +82,6 @@ Log the user in
 ```
 {
   userId: "",
-  token: ""
 }
 ```
 
@@ -93,7 +91,6 @@ Delete the user's account
          
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **output**
@@ -108,7 +105,6 @@ Delete the user's account
          
 **query**
 ```
-  token: "",
   name: "",
   type: "",
   place: "",
@@ -137,7 +133,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **output**
@@ -162,7 +157,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **body**
@@ -190,7 +184,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: "",
   eventId: ""
 ```
@@ -206,7 +199,6 @@ Delete the user's account
          
 **query**
 ```
-  token: "",
   userId: "",
   eventId: ""
 ```
@@ -235,7 +227,6 @@ Delete the user's account
          
 **query**
 ```
-  token: "",
   userId: "",
 ```
 **body**
@@ -256,7 +247,6 @@ Delete the user's account
          
 **query**
 ```
-  token: "",
   userId: "",
   eventId: ""
 ```
@@ -272,7 +262,6 @@ Delete the user's account
          
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **body**
@@ -295,7 +284,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **body**
