@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import uuidv4 from 'uuid/v4'
 import moment from 'moment'
 
 import Styles from './EventsScreenStyles'
@@ -26,41 +25,23 @@ class EventsScreen extends Component {
     ),
   })
 
-  componentDidMount() {
-    Realm.open({schema: Schema})
-    .then(realm => {
-      const events = realm.objects('Event').map((event) => ({
-        title: event.name,
-        description: event.description,
-        date: moment(event.date, ["MM-DD-YYYY", "YYYY-MM-DD"]),
-        local: event.locationName,
-        price: event.price,
-        type: event.type,
-        openings: event.opnenings,
-        latitude: event.latitude,
-        longitude: event.longitude
-      }))
-      this.props.dispatch(setEvents(events))
-    }).catch(error => {
-      // implement user feedback - not connect to database
-      console.log(error);
-    });
-  }
-
   render() {
     return (
       <View style={Styles.container}>
-      {
-        this.props.events.map((event) => (
-          <Event key={uuidv4()}
-            title={event.title}
-            description={event.description}
-            date={moment(event.date).format("DD/MM/YYYY")}
-            local={event.local}
-            price={event.price}
-            isOwner={true}/>)
-        )
-      }
+        <FlatList
+          keyExtractor={(item, index) => item.id}
+          data={this.props.events}
+          renderItem={ ({item}) => (
+            <Event
+              title={item.title}
+              description={item.description}
+              date={moment(item.date).format("DD/MM/YYYY")}
+              local={item.local}
+              price={item.price}
+              isOwner={true}/>
+          )}
+        />
+
       </View>
     )
   }

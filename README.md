@@ -2,6 +2,15 @@
 
 Simple project created to achieve some react-native knowlodge
 
+### To run this project:
+
+##### Using NodeJS server:
+```
+  ~ cd NodeJS
+  ~ node server.js
+```
+
+It runs on PORT 3000
 
 ## Rest Routes
 
@@ -50,7 +59,7 @@ Simple project created to achieve some react-native knowlodge
 
 <a name="v1m1"></a>
 ### 1. POST /api/v1/account/signup
-Create a new account 
+Create a new account
 
 **body**
 ```
@@ -64,13 +73,12 @@ Create a new account
 ```
 {
   userId: "",
-  token: ""
 }
 ```
 
 <a name="v1m2"></a>
 ### 2. POST /api/v1/account/login
-Log the user in 
+Log the user in
 
 **body**
 ```
@@ -83,17 +91,15 @@ Log the user in
 ```
 {
   userId: "",
-  token: ""
 }
 ```
 
 <a name="v1m3"></a>
 ### 3. DELETE /api/v1/account/delete
 Delete the user's account
-         
+
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **output**
@@ -105,10 +111,9 @@ Delete the user's account
 
 <a name="v1m4"></a>
 ### 4. GET /api/v1/event/list
-         
+
 **query**
 ```
-  token: "",
   name: "",
   type: "",
   place: "",
@@ -137,7 +142,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **output**
@@ -162,14 +166,14 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **body**
 ```
 {
   name: "",
-  type: "",
+  locationName: "",
+  type: "",
   description: "",
   lat: 0.0,
   lng: 0.0,
@@ -190,7 +194,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: "",
   eventId: ""
 ```
@@ -203,10 +206,9 @@ Delete the user's account
 
 <a name="v1m7"></a>
 ### 7. PUT /api/v1/event/update
-         
+
 **query**
 ```
-  token: "",
   userId: "",
   eventId: ""
 ```
@@ -232,10 +234,9 @@ Delete the user's account
 
 <a name="v1m8"></a>
 ### 8. POST /api/v1/event/join
-         
+
 **query**
 ```
-  token: "",
   userId: "",
 ```
 **body**
@@ -253,10 +254,9 @@ Delete the user's account
 
 <a name="v1m9></a>
 ### 9. DELETE /api/v1/event/leave
-         
+
 **query**
 ```
-  token: "",
   userId: "",
   eventId: ""
 ```
@@ -269,10 +269,9 @@ Delete the user's account
 
 <a name="v1m10"></a>
 ### 10. PUT /api/v1/profile/update
-         
+
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **body**
@@ -295,7 +294,6 @@ Delete the user's account
 
 **query**
 ```
-  token: "",
   userId: ""
 ```
 **body**

@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { Text, View, TextInput, Image, Button, TouchableHighlight } from 'react-native'
-import MapView from 'react-native-maps'
+import MapView, { Marker, Callout } from 'react-native-maps'
+import moment from 'moment'
+import Realm from 'realm'
+import Schema from '../../models/Schema'
+import { setEvents } from '../../redux/mainActions'
 
 import AddEventModal from './AddEventModal'
 import ButtonNavbar from '../../components/ButtonNavbar'
+import CalloutEvent from '../../components/CalloutEvent'
 
 import styles from './MainScreenStyles'
 import menuStyles from '../../utils/MenuStyles'
@@ -33,6 +38,25 @@ class MainScreen extends Component {
 
   componentDidMount() {
     this.props.navigation.setParams({ modal: this.openModal.bind(this)})
+    Realm.open({schema: Schema})
+    .then(realm => {
+      const events = realm.objects('Event').map((event) => ({
+        id: uuidv4(),
+        title: event.name,
+        description: event.description,
+        date: moment(event.date, ["MM-DD-YYYY", "YYYY-MM-DD"]),
+        local: event.locationName,
+        price: event.price,
+        type: event.type,
+        openings: event.openings,
+        latitude: event.latitude,
+        longitude: event.longitude
+      }))
+      this.props.dispatch(setEvents(events))
+    }).catch(error => {
+      // implement user feedback - not connect to database
+      console.log(error);
+    });
   }
 
   static navigationOptions = ( { navigation }) => ({
@@ -63,14 +87,16 @@ class MainScreen extends Component {
           }}
         >
           {this.props.events.map(event => (
-            <MapView.Marker key={uuidv4()} //use a uuid lib
+            <Marker key={(uuidv4())} //use a uuid lib
               coordinate={{
                 latitude: event.latitude,
                 longitude: event.longitude
               }}
-              title={event.title}
-              description={event.description}
-            />
+            >
+              <Callout >
+                <CalloutEvent event={event} />
+              </Callout>
+            </Marker>
           ))}
         </MapView>
         <AddEventModal closeModal={this.closeModal} modalVisible={this.props.isModalOpen}/>
