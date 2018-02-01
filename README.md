@@ -163,7 +163,7 @@ Delete the user's account
 ```
 {
   name: "",
-  eventName: "",
+  locationName: "",
   type: "",
   description: "",
   lat: 0.0,
