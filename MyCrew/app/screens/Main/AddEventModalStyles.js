@@ -9,9 +9,6 @@ export default StyleSheet.create({
     flexGrow: 1,
   },
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 70,
     marginLeft: 10,
     marginRight: 10,
@@ -39,6 +36,7 @@ export default StyleSheet.create({
   buttonCancel: {
     backgroundColor: Colors.grey,
     marginTop: 20,
+    marginBottom: 20,
     width: '50%'
   },
   logoBridge: {

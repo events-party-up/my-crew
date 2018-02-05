@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Modal } from 'react-native'
+import { Text, View, Modal, ScrollView, StyleSheet } from 'react-native'
 import Styles from './AddEventModalStyles'
 
 import Colors from '../../utils/colors'
@@ -95,18 +95,20 @@ class AddEventModal extends Component {
               transparent={true}
           >
             <View style={Styles.container}>
-              <View style={Styles.form}>
-                <Title text="Create an event" />
-                <Input onChangeText={(text) => this.setState({ name: text })} placeholder="Name" style={Styles.input}/>
-                <Input onChangeText={(text) => this.setState({ description: text })} placeholder="Description" style={Styles.input}/>
-                <Input onChangeText={(text) => this.setState({ type: text })} placeholder="Type" style={Styles.input}/>
-                <Input onFocus={this.openSearchModal} value={this.state.locationName} placeholder="Place" style={Styles.input} />
-                <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Number of slots" style={Styles.input} />
-                <Input onChangeText={(text) => this.setState({ date: text })} placeholder="Date" style={Styles.input}/>
-                <Input onChangeText={(text) => this.setState({ price: text })} placeholder="Price" style={Styles.input}/>
-                <Button text="Create" style={Styles.buttonConfirm} onPress={this.onCreateEvent} underlayColor={Colors.purpleLight}/>
-                <Button text="Cancel" style={Styles.buttonCancel} onPress={this.props.closeModal} underlayColor={Colors.purpleLight}/>
-              </View>
+              <ScrollView>
+                <View style={Styles.form}>
+                  <Title text="Create an event" />
+                  <Input onChangeText={(text) => this.setState({ name: text })} placeholder="Name" style={Styles.input}/>
+                  <Input onChangeText={(text) => this.setState({ description: text })} placeholder="Description" style={Styles.input}/>
+                  <Input onChangeText={(text) => this.setState({ type: text })} placeholder="Type" style={Styles.input}/>
+                  <Input onFocus={this.openSearchModal} value={this.state.locationName} placeholder="Place" style={Styles.input} />
+                  <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Number of slots" style={Styles.input} />
+                  <Input onChangeText={(text) => this.setState({ date: text })} placeholder="Date" style={Styles.input}/>
+                  <Input onChangeText={(text) => this.setState({ price: text })} placeholder="Price" style={Styles.input}/>
+                  <Button text="Create" style={Styles.buttonConfirm} onPress={this.onCreateEvent} underlayColor={Colors.purpleLight}/>
+                  <Button text="Cancel" style={Styles.buttonCancel} onPress={this.props.closeModal} underlayColor={Colors.purpleLight}/>
+                </View>
+              </ScrollView>
             </View>
           </Modal>
         </View>
