@@ -14,14 +14,16 @@ import LoginScreen from './app/screens/Login/LoginScreen'
 import SignupScreen from './app/screens/Signup/SignupScreen'
 import MainScreen from './app/screens/Main/MainScreen'
 import EventsScreen from './app/screens/Events/EventsScreen'
+import AddEventScreen from './app/screens/Events/AddEventScreen'
 import FilterScreen from './app/screens/Filters/FilterScreen'
 import ProfileScreen from './app/screens/Profile/ProfileScreen'
 
 const Drawer = DrawerNavigator({
   Main: { screen: MainScreen },
   Events: { screen: EventsScreen },
+  AddEvent: { screen: AddEventScreen },
   Filters: { screen: FilterScreen },
-  Profile: { screen: ProfileScreen}
+  Profile: { screen: ProfileScreen }
 }, {
   contentComponent: DrawerMenu,
 });

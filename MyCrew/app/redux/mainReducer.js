@@ -1,17 +1,11 @@
 import { changeModalFlag } from './mainActions'
 
 const mainState = {
-  events: [],
-  isModalOpen: false
+  events: []
 }
 
 export default (state = mainState, action) => {
   switch (action.type) {
-    case 'CHANGE_MODAL_FLAG':
-      return {
-        ...state,
-        isModalOpen: action.isOpen
-      }
     case 'SAVE_EVENT':
       return {
         ...state,

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import uuidv4 from 'uuid/v4'
 
 import Styles from './EventsScreenStyles'
 import Colors from '../../utils/colors'
@@ -33,6 +34,7 @@ class EventsScreen extends Component {
           data={this.props.events}
           renderItem={ ({item}) => (
             <Event
+              key={uuidv4()}
               title={item.title}
               description={item.description}
               date={moment(item.date).format("DD/MM/YYYY")}
