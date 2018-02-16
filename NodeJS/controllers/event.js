@@ -21,8 +21,10 @@ router.get('/attending', function(req, res) {
     return
   }
 
-  db.sequelize.query('SELECT * FROM signups JOIN events ON events.id = signups.event_id WHERE person_id = ?', { replacements: [userId], type: db.sequelize.QueryTypes.SELECT }
-).then(function (events) {
+  db.sequelize.query(
+    'SELECT * FROM signups JOIN events ON events.id = signups.event_id WHERE person_id = ?',
+    { replacements: [userId], type: db.sequelize.QueryTypes.SELECT }
+  ).then(function (events) {
 	   res.json(events);
 	});
 })

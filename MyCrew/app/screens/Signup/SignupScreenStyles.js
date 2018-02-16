@@ -36,5 +36,10 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     width: '25%',
     marginTop: 0
+  },
+  errorFeedback: {
+    color: Colors.red,
+    fontWeight: '800',
+    paddingTop: 8,
   }
 })

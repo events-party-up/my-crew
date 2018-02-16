@@ -34,5 +34,10 @@ export default StyleSheet.create({
   logoBridge: {
     resizeMode: 'contain',
     width: '25%',
+  },
+  errorFeedback: {
+    color: Colors.red,
+    fontWeight: '800',
+    paddingTop: 8,
   }
 })
