@@ -32,7 +32,8 @@ export default class Input extends React.Component {
           secureTextEntry={this.props.secureTextEntry}
           keyboardType={this.props.keyboardType}
           onBlur={this.props.onBlur}
-        />
+          onFocus={this.props.onFocus}
+          value={this.props.value} />
       </View>
     )
   }
