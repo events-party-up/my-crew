@@ -3,13 +3,13 @@ import Realm from 'realm'
 const Event = {
   name: 'Event',
   properties: {
-    name:  'string',
+    name: 'string',
     description: 'string',
-    price: {type: 'int', default: 0},
     date: 'date',
+    slotsMin: {type: 'int', default: 1},
+    slotsMax: {type: 'int', default: 1},
+    price: {type: 'int', default: 0},
     locationName: 'string',
-    type: 'string',
-    openings: {type: 'int', default: 1},
     latitude: 'double',
     longitude: 'double'
     // participants: 'Person[]'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 
-// change styles file here
+// change styles file here!!!
 import Styles from './EventsScreenStyles'
 import Colors from '../../utils/colors'
 
@@ -16,6 +16,7 @@ import Input from '../../components/Input'
 import Title from '../../components/Title'
 import Button from '../../components/Button'
 
+import moment from 'moment';
 import RNGooglePlaces from 'react-native-google-places'
 
 export default class AddEventScreen extends Component {
@@ -32,16 +33,16 @@ export default class AddEventScreen extends Component {
 
   constructor(props) {
     super(props)
-    // console.log(Realm.defaultPath)
+    console.log(Realm.defaultPath)
     this.onCreateEvent = this.onCreateEvent.bind(this)
     this.openSearchModal = this.openSearchModal.bind(this)
     this.state = {
       name: '',
       description: '',
       type: '',
-      place: '',
       locationName: 'Your place',
-      slots: '',
+      slotsMin: 1,
+      slotsMax: 1,
       latitude: 0,
       longitude: 0,
       date: undefined,
@@ -54,31 +55,33 @@ export default class AddEventScreen extends Component {
       .then(realm => {
         realm.write(() => {
           const event = realm.create('Event', {
+            locationName: this.state.locationName,
+            latitude: this.state.latitude,
+            longitude: this.state.longitude,
             name: this.state.name,
             description: this.state.description,
-            price: parseInt(this.state.price),
             date: moment(this.state.date, 'DD-MM-YYYY').toDate(),
-            locationName: this.state.place,
-            type: this.state.type,
-            openings: parseInt(this.state.slots),
-            latitude: this.state.latitude,
-            longitude: this.state.longitude
+            slotsMin: parseInt(this.state.slotsMin),
+            slotsMax: parseInt(this.state.slotsMax),
+            price: parseInt(this.state.price),
           });
         })
 
         this.props.dispatch(saveEvent({
-          title: this.state.name,
+          locationName: this.state.locationName,
+          latitude: this.state.latitude,
+          longitude: this.state.longitude,
+          name: this.state.name,
           description: this.state.description,
           date: moment(this.state.date, 'DD-MM-YYYY').toDate(),
-          local: this.state.place,
-          price: this.state.price,
-          type: this.state.type,
-          openings: parseInt(this.state.slots),
-          latitude: this.state.latitude,
-          longitude: this.state.longitude
+          slotsMin: this.state.slotsMin,
+          slotsMax: this.state.slotsMax,
+          price: this.state.price
         }))
 
-        this.props.closeModal();
+        //make call to confirm message
+        // navigation.goBack()
+
       }).catch(error => {
         // implement user feedback - not connect to database
         console.log(error);
@@ -109,8 +112,8 @@ export default class AddEventScreen extends Component {
             <Input onChangeText={(text) => this.setState({ name: text })} placeholder="Game" style={Styles.input}/>
             <Input onChangeText={(text) => this.setState({ description: text })} placeholder="Description" style={Styles.input}/>
             <Input onChangeText={(text) => this.setState({ date: text })} placeholder="Date and hour" style={Styles.input}/>
-            <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Min size" style={Styles.input} />
-            <Input onChangeText={(text) => this.setState({ slots: text })} placeholder="Max size" style={Styles.input} />
+            <Input onChangeText={(text) => this.setState({ slotsMin: text })} placeholder="Min size" style={Styles.input} />
+            <Input onChangeText={(text) => this.setState({ slotsMax: text })} placeholder="Max size" style={Styles.input} />
             <Input onChangeText={(text) => this.setState({ price: text })} placeholder="Price" style={Styles.input}/>
             <Button text="Create!" style={Styles.buttonConfirm} onPress={this.onCreateEvent} underlayColor={Colors.purpleLight}/>
           </View>

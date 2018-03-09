@@ -22,19 +22,22 @@ import uuidv4 from 'uuid/v4'
 class MainScreen extends Component {
 
   componentDidMount() {
+    console.log(Realm.defaultPath)
     Realm.open({schema: Schema})
     .then(realm => {
+
+      // check if values are setted properly
       const events = realm.objects('Event').map((event) => ({
-        id: uuidv4(),
-        title: event.name,
+        // id: uuidv4(),
+        locationName: this.state.locationName,
+        latitude: event.latitude,
+        longitude: event.longitude,
+        name: event.name,
         description: event.description,
         date: moment(event.date, ["MM-DD-YYYY", "YYYY-MM-DD"]),
-        local: event.locationName,
-        price: event.price,
-        type: event.type,
-        openings: event.openings,
-        latitude: event.latitude,
-        longitude: event.longitude
+        slotsMin: this.state.slotsMin,
+        slotsMax: this.state.slotsMax,
+        price: this.state.price
       }))
       this.props.dispatch(setEvents(events))
     }).catch(error => {
